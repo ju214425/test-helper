@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.db import engine, Base
-from app.routers import subjects_router, exams_router, questions_router
+from app.routers import subjects_router, exams_router, questions_router, answers_router
 
 app = FastAPI()
 
@@ -10,3 +10,4 @@ Base.metadata.create_all(bind=engine)
 app.include_router(subjects_router.router, tags=["subject"])
 app.include_router(exams_router.router, tags=["exam"])
 app.include_router(questions_router.router, tags=["question"])
+app.include_router(answers_router.router, tags=["answer"])
